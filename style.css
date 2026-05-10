@@ -1,0 +1,217 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #0a7ebc;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 1.5rem;
+}
+
+#seal-screen {
+  position: fixed;
+  inset: 0;
+  background-color: #2082aa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: opacity 1s ease;
+}
+
+#seal-screen p {
+  font-family: 'Luxurious Roman', serif;
+  font-size: 1.2rem;
+  color: #f1e9d2;
+  letter-spacing: 0.2em;
+}
+
+#letter {
+  background: #F1E9D2;
+  max-width: 680px;
+  width: 100%;
+  padding: 4rem 3.5rem;
+  border-radius: 2px;
+  box-shadow: 0 8px 80px rgba(0,0,0,0.7);
+  display: none;
+  opacity: 0;
+  transition: opacity 1s ease, transform 1s ease;
+  transform: translateY(30px);
+}
+
+.letter-greeting {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8rem;
+  color: #2a1a10;
+  margin-bottom: 1.5rem;
+}
+
+.letter-layout {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.letter-text {
+  flex: 1;
+}
+
+.letter-body {
+  font-family: 'Lexend', sans-serif;
+  font-size: 1rem;
+  line-height: 1.9;
+  color: #3a2510;
+  margin-bottom: 1.2rem;
+}
+
+.letter-sign {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #3a2510;
+  margin-bottom: auto;
+}
+
+.inline-photo {
+  float: right;
+  width: 50px; height: auto;
+}
+
+.photostrip {
+  background: #111;
+  padding: 1rem 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: fit-content;
+  position: relative; /* Fixes the film hole positioning */
+  margin-top: -40px;   /* Pulls the strip higher */
+  z-index: 5;          /* Ensures it stays above other elements if they overlap */
+}
+
+.film-frame video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* This crops the video to fill the square/rectangle without stretching */
+}
+
+.photostrip::before {
+  content: '';
+  position: absolute;
+  left: -12px;
+  top: 0;
+  bottom: 0;
+  width: 10px;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 8px,
+    #592720 8px,
+    #592720 18px
+  );
+}
+
+.photostrip::after {
+  content: '';
+  position: absolute;
+  right: -12px;
+  top: 0;
+  bottom: 0;
+  width: 10px;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 8px,
+    #592720 8px,
+    #592720 18px
+  );
+}
+
+.film-frame {
+  width: 150px;
+  height: 130px;
+  overflow: hidden;
+  border: 3px solid #222;
+  outline: 5px solid #111;
+}
+
+.film-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.strip-label {
+  font-family: 'Luxurious Roman', serif;
+  font-size: 0.65rem;
+  color: #aaa;
+  text-align: center;
+  letter-spacing: 0.2em;
+  margin-top: 6px;
+  text-transform: uppercase;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fall {
+  0%   { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(105vh) rotate(360deg); opacity: 0; }
+}
+#seal {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: #4bd1cc;
+  border: 6px solid #009193;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  animation: pulseSeal 2s ease-in-out infinite;
+  transition: transform 0.2s;
+}
+
+#seal:hover {
+  transform: scale(1.08);
+}
+
+@keyframes pulseSeal {
+  0%, 100% { box-shadow: 0 0 30px #c0392b55; }
+  50%       { box-shadow: 0 0 60px #c0392b99; }
+}
+.music-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 15px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid #c0392b;
+  color: #c0392b;
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+  border-radius: 20px;
+  z-index: 100;
+  display: none; /* Hidden until the letter opens */
+  transition: all 0.3s ease;
+}
+
+.music-btn:hover {
+  background-color: #c0392b;
+  color: white;
+}
