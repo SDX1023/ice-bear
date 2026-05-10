@@ -5,7 +5,7 @@
 }
 
 body {
-  background: #0a7ebc;
+  background: #b7c7eb;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -16,7 +16,7 @@ body {
 #seal-screen {
   position: fixed;
   inset: 0;
-  background-color: #2082aa;
+  background-color: #b7c7eb;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,7 +28,7 @@ body {
 #seal-screen p {
   font-family: 'Luxurious Roman', serif;
   font-size: 1.2rem;
-  color: #f1e9d2;
+  color: #000;
   letter-spacing: 0.2em;
 }
 
@@ -176,8 +176,8 @@ body {
   width: 110px;
   height: 110px;
   border-radius: 50%;
-  background: #4bd1cc;
-  border: 6px solid #009193;
+  background: #94a9d4;
+  border: 6px solid #afcffe;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -192,8 +192,8 @@ body {
 }
 
 @keyframes pulseSeal {
-  0%, 100% { box-shadow: 0 0 30px #c0392b55; }
-  50%       { box-shadow: 0 0 60px #c0392b99; }
+  0%, 100% { box-shadow: 0 0 30px #1b2f52 }
+  50%       { box-shadow: 0 0 60px #b7c7eb }
 }
 .music-btn {
   position: fixed;
